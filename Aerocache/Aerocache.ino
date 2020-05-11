@@ -57,9 +57,9 @@ void loop() {
         lcd.print(concentration1,3);
         
         Serial.print(lowpulseoccupancy);
-        Serial.print(" | ");
+        Serial.print(", ");
         Serial.print(ratio);
-        Serial.print(" | ");
+        Serial.print(", ");
         Serial.println(concentration);
 
 
