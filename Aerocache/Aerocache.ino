@@ -1,20 +1,12 @@
 #include <LiquidCrystal.h>
-const int rs=7; // arduino pin connect to LCD RS pin
-const int enable=9; // arduino pin connect to LCD Enable pin
-const int db4=4;  // arduino pin connected to LCD data bit 4 pin
-const int db5=5;  // arduino pin connected to LCD data bit 5 pin
-const int db6=6;  // arduino pin connected to LCD data bit 6 pin
-const int db7=3;  // arduino pin connected to LCD data bit 7 pin
-
+const int rs=7;       // arduino pin connect to LCD RS pin
+const int enable=9;   // arduino pin connect to LCD Enable pin
+const int db4=4;      // arduino pin connected to LCD data bit 4 pin
+const int db5=5;      // arduino pin connected to LCD data bit 5 pin
+const int db6=6;      // arduino pin connected to LCD data bit 6 pin
+const int db7=3;      // arduino pin connected to LCD data bit 3 pin
 LiquidCrystal (rs, enable, db4, db5, db6, db7);
 
-/*
-  https://www.arduino.cc/en/Reference/LiquidCrystalConstructor
-  
-  1. Check if chipset is compatible
-  2. Plug in correct parameters
-
-*/
 
 
 int pin = 8;
@@ -40,9 +32,9 @@ void setup() {
     starttime = millis();   //GETS CURRENT TIME
     
     Serial.print("Low Pulse Occupancy");
-    Serial.print(" | ");
+    Serial.print(",  ");
     Serial.print("Ratio");
-    Serial.print(" | ");
+    Serial.print(", ");
     Serial.println("Concentration");
 }
 
@@ -55,7 +47,7 @@ void loop() {
         
         ratio = lowpulseoccupancy/(sampletime_ms*10.0);   //CONVERTS TIME SPENT IN LOW STATE TO %
         
-        concentration = 1.1 * pow(ratio,3) - 3.8 * pow(ratio,2) + 520 * ratio + 0.62;  // if x is ratio, then y = 1.1 *​x^​3-​3.8*​x^​2+​520*​x+​0.62            
+        concentration = 1.1 * pow(ratio,3) - 3.8 * pow(ratio,2) + 520 * ratio + 0.62;  // IF x IS RATIO, THEN y = 1.1 *​x^​3-​3.8*​x^​2+​520*​x+​0.62            
 
 
         lcd.setCursor(0, 0);
@@ -74,10 +66,10 @@ void loop() {
          
           lcd.setCursor (0, 1);
          
-//          for (int i = 0; i < 16; ++i)
-//             {
-//                lcd.write(' ');
-//             }
+          for (int i = 0; i < 16; ++i)    //ALLOWS TEXT TO APPEAR CENTERED; VALUE SUBJECT TO CHANGE
+             {
+                lcd.write(' ');
+             }
 
           lcd.setCursor(4, 1);
           lcd.print("CLEAN");
@@ -87,10 +79,10 @@ void loop() {
     
           lcd.setCursor (0, 1);
          
-//          for (int i = 0; i < 16; ++i)
-//            {
-//                lcd.write(' ');
-//            }
+          for (int i = 0; i < 16; ++i)
+            {
+                lcd.write(' ');
+            }
          
           lcd.setCursor(4, 1);
           lcd.print("GOOD");
@@ -100,10 +92,10 @@ void loop() {
     
           lcd.setCursor (0, 1);
         
-//          for (int i = 0; i < 16; ++i)
-//            {
-//                lcd.write(' ');
-//            }
+          for (int i = 0; i < 16; ++i)
+            {
+                lcd.write(' ');
+            }
           
           lcd.setCursor(4, 1);
           lcd.print("ACCEPTABLE");
@@ -114,10 +106,10 @@ void loop() {
         
           lcd.setCursor (0, 1);
           
-//          for (int i = 0; i < 16; ++i)
-//            {
-//                lcd.write(' ');
-//            }
+          for (int i = 0; i < 16; ++i)
+            {
+                lcd.write(' ');
+            }
                
           lcd.setCursor(4, 1);
           lcd.print("HEAVY");
@@ -128,10 +120,10 @@ void loop() {
           
           lcd.setCursor (0, 1);
           
-//          for (int i = 0; i < 16; ++i)
-//            {
-//                lcd.write(' ');
-//            }
+          for (int i = 0; i < 16; ++i)
+            {
+                lcd.write(' ');
+            }
           
           lcd.setCursor(4, 1);
           lcd.print("HAZARD");
