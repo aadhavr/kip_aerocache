@@ -1,12 +1,5 @@
 #include <LiquidCrystal.h>
-const int rs=7; // arduino pin connect to LCD RS pin
-const int enable=9; // arduino pin connect to LCD Enable pin
-const int d4=4;  // arduino pin connected to LCD data bit 4 pin
-const int d5=5;  // arduino pin connected to LCD data bit 5 pin
-const int d6=6;  // arduino pin connected to LCD data bit 6 pin
-const int d7=3;  // arduino pin connected to LCD data bit 7 pin
-
-LiquidCrystal (rs, enable, d4, d5, d6, d7);
+LiquidCrystal lcd();
 
 /*
   https://www.arduino.cc/en/Reference/LiquidCrystalConstructor
@@ -55,7 +48,7 @@ void loop() {
         
         ratio = lowpulseoccupancy/(sampletime_ms*10.0);   //CONVERTS TIME SPENT IN LOW STATE TO %
         
-        concentration = 1.1 * pow(ratio,3) - 3.8 * pow(ratio,2) + 520 * ratio + 0.62;  // if x is ratio, then y = 1.1 *​x^​3-​3.8*​x^​2+​520*​x+​0.62            
+        concentration = 1.1 * pow(ratio,3) - 3.8 * pow(ratio,2) + 520 * ratio + 0.62;  // if x is ratio, then y = 1.1*​x^​3-​3.8*​x^​2+​520*​x+​0.62            
 
 
         lcd.setCursor(0, 0);
