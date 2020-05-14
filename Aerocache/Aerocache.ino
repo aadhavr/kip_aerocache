@@ -1,11 +1,5 @@
 #include <LiquidCrystal.h>
-const int rs=7;       // arduino pin connect to LCD RS pin
-const int enable=9;   // arduino pin connect to LCD Enable pin
-const int db4=4;      // arduino pin connected to LCD data bit 4 pin
-const int db5=5;      // arduino pin connected to LCD data bit 5 pin
-const int db6=6;      // arduino pin connected to LCD data bit 6 pin
-const int db7=3;      // arduino pin connected to LCD data bit 3 pin
-LiquidCrystal (rs, enable, db4, db5, db6, db7);
+LiquidCrystal lcd(7, 9, 4, 5, 6, 3);
 
 
 
