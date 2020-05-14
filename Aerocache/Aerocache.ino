@@ -47,7 +47,7 @@ void loop() {
         lcd.setCursor(0, 0);
         lcd.print("PM10 ");
         lcd.setCursor(6, 0);
-        lcd.print(concentration1,3);
+        lcd.print(concentration, 3);
         
         Serial.print(lowpulseoccupancy);
         Serial.print(", ");
@@ -56,7 +56,7 @@ void loop() {
         Serial.println(concentration);
 
 
-        if (concentration1 < 1000) {
+        if (concentration < 1000) {
          
           lcd.setCursor (0, 1);
          
@@ -69,7 +69,7 @@ void loop() {
           lcd.print("CLEAN");
     
         }
-        else if (concentration1 >= 1000 && concentration1 < 10000) {
+        else if (concentration >= 1000 && concentration < 10000) {
     
           lcd.setCursor (0, 1);
          
@@ -82,7 +82,7 @@ void loop() {
           lcd.print("GOOD");
          
         }
-        else if (concentration1 >= 10000 && concentration1 < 20000) {
+        else if (concentration >= 10000 && concentration < 20000) {
     
           lcd.setCursor (0, 1);
         
@@ -96,7 +96,7 @@ void loop() {
     
         }
         
-        if (concentration1 >= 20000 && concentration1 < 50000) {
+        if (concentration >= 20000 && concentration < 50000) {
         
           lcd.setCursor (0, 1);
           
@@ -110,7 +110,7 @@ void loop() {
          
         }
     
-        if (concentration1 >= 50000 ) {
+        if (concentration >= 50000 ) {
           
           lcd.setCursor (0, 1);
           
