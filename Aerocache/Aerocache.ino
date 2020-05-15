@@ -1,6 +1,24 @@
+#include <Adafruit_RGBLCDShield.h>
 #include <LiquidCrystal.h>
 LiquidCrystal lcd(7, 9, 4, 5, 6, 3);
 
+#define OFF 0x0   // BACKLIGHT COLORS
+#define RED 0x1
+#define YELLOW 0x3
+#define GREEN 0x2
+#define TEAL 0x6
+#define BLUE 0x4
+#define VIOLET 0x5
+#define WHITE 0x7 
+
+/*
+
+EXPERIMENTAL!
+
+#define REDLIGHT 3
+#define GREENLIGHT 5
+#define BLUELIGHT 6
+ */
 
 
 int pin = 8;
@@ -21,6 +39,7 @@ void setup() {
 
     Serial.begin(9600);
     lcd.begin(18,2);
+    lcd.setBacklight(BLUE)    //
     
     pinMode(pin,INPUT);
     
@@ -31,6 +50,29 @@ void setup() {
     Serial.print("Ratio");
     Serial.print(", ");
     Serial.println("Concentration");
+
+
+    /*
+
+    EXPIREMENTAL!
+
+    for (int i = 0, i < 255, i++) {
+      setBacklight(i, 0, 255-i);
+      delay(5);
+    }
+    for (int i = 0, i < 255, i++) {
+      setBacklight(255-i, i, 0);
+      delay(5);
+    }
+    for (int i = 0, i < 255, i++) {
+      setBacklight(0, 255-i, i);
+      delay(5);
+    }
+    
+    
+    */
+
+    
 }
 
 void loop() {
@@ -129,4 +171,19 @@ void loop() {
         lowpulseoccupancy = 0;
         starttime = millis();
     }
+/*
+    void setBacklight(uint8_t r, uint8_t g, uint8_t b) {
+           
+      // INVERT FOR COMMON ANODE  
+      r = map(r, 0, 255, 255, 0);
+      g = map(g, 0, 255, 255, 0);
+      b = map(b, 0, 255, 255, 0);
+      
+      analogWrite(REDLIGHT, r);
+      analogWrite(GREENLIGHT, g);
+      analogWrite(BLUELIGHT, b);
+    }
+*/
+
+    
 }
