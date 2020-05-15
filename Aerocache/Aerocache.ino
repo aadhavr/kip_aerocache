@@ -20,6 +20,7 @@ float concentration = 0;
 void setup() {
 
     Serial.begin(9600);
+    lcd.begin(18,2);
     
     pinMode(pin,INPUT);
     
