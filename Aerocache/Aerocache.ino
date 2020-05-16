@@ -1,7 +1,7 @@
 #include <Adafruit_RGBLCDShield.h>
 //#include <LiquidCrystal.h>
 Adafruit_RGBLCDShield lcd = Adafruit_RGBLCDShield();
-LiquidCrystal lcd(7, 9, 4, 5, 6, 3);
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
 #define OFF 0x0   // BACKLIGHT COLORS
 #define RED 0x1
