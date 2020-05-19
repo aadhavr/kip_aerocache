@@ -1,16 +1,5 @@
-#include <Adafruit_RGBLCDShield.h>
-//#include <LiquidCrystal.h>
-Adafruit_RGBLCDShield lcd = Adafruit_RGBLCDShield();
+include <LiquidCrystal.h>
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
-
-#define OFF 0x0   // BACKLIGHT COLORS
-#define RED 0x1
-#define YELLOW 0x3
-#define GREEN 0x2
-#define TEAL 0x6
-#define BLUE 0x4
-#define VIOLET 0x5
-#define WHITE 0x7 
 
 int pin = 8;
 
@@ -30,17 +19,10 @@ void setup() {
 
     Serial.begin(9600);
     lcd.begin(18,2);
-    lcd.setBacklight(BLUE)    //
     
     pinMode(pin,INPUT);
     
     starttime = millis();   //GETS CURRENT TIME
-    
-    Serial.print("Low Pulse Occupancy");
-    Serial.print(",  ");
-    Serial.print("Ratio");
-    Serial.print(", ");
-    Serial.println("Concentration");
     
 }
 
@@ -60,13 +42,6 @@ void loop() {
         lcd.print("PM10 ");
         lcd.setCursor(6, 0);
         lcd.print(concentration, 3);
-        
-        Serial.print(lowpulseoccupancy);
-        Serial.print(", ");
-        Serial.print(ratio);
-        Serial.print(", ");
-        Serial.println(concentration);
-
 
         if (concentration < 1000) {
          
