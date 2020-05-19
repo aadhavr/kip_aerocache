@@ -12,16 +12,6 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 #define VIOLET 0x5
 #define WHITE 0x7 
 
-/*
-
-EXPERIMENTAL!
-
-#define REDLIGHT 3
-#define GREENLIGHT 5
-#define BLUELIGHT 6
- */
-
-
 int pin = 8;
 
 unsigned long duration;
@@ -51,28 +41,6 @@ void setup() {
     Serial.print("Ratio");
     Serial.print(", ");
     Serial.println("Concentration");
-
-
-    /*
-
-    EXPIREMENTAL!
-
-    for (int i = 0, i < 255, i++) {
-      setBacklight(i, 0, 255-i);
-      delay(5);
-    }
-    for (int i = 0, i < 255, i++) {
-      setBacklight(255-i, i, 0);
-      delay(5);
-    }
-    for (int i = 0, i < 255, i++) {
-      setBacklight(0, 255-i, i);
-      delay(5);
-    }
-    
-    
-    */
-
     
 }
 
@@ -172,19 +140,5 @@ void loop() {
         lowpulseoccupancy = 0;
         starttime = millis();
     }
-/*
-    void setBacklight(uint8_t r, uint8_t g, uint8_t b) {
-           
-      // INVERT FOR COMMON ANODE  
-      r = map(r, 0, 255, 255, 0);
-      g = map(g, 0, 255, 255, 0);
-      b = map(b, 0, 255, 255, 0);
-      
-      analogWrite(REDLIGHT, r);
-      analogWrite(GREENLIGHT, g);
-      analogWrite(BLUELIGHT, b);
-    }
-*/
-
     
 }
